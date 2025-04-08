@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-qho-c!!!8lr=)j)p+uv%ulc9pc036jihu&)(5_d)qtr69-@qe^
 DEBUG = True
 
 # Allow all hosts
-ALLOWED_HOSTS = ['opulent-yodel-8000.app.github.dev', 'localhost']
+ALLOWED_HOSTS = ['opulent-yodel-7xg4rvgw9r3r46w-8000.app.github.dev', 'localhost']
 
 
 # Application definition
@@ -42,6 +42,12 @@ INSTALLED_APPS = [
     'octofit_tracker',
 ]
 
+# Remove duplicate entry for 'corsheaders'
+INSTALLED_APPS = [
+    app for app in INSTALLED_APPS if app != 'corsheaders'
+]
+INSTALLED_APPS.append('corsheaders')
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     "django.middleware.security.SecurityMiddleware",
@@ -52,6 +58,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+MIDDLEWARE.insert(0, 'corsheaders.middleware.CorsMiddleware')
 
 ROOT_URLCONF = "octofit_tracker.urls"
 
@@ -129,8 +137,7 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# Enable CORS
-CORS_ALLOW_ALL_ORIGINS = True
+# Clean up redundant CORS settings
 CORS_ALLOW_METHODS = [
     'GET',
     'POST',
@@ -139,7 +146,20 @@ CORS_ALLOW_METHODS = [
     'DELETE',
     'OPTIONS',
 ]
+
 CORS_ALLOW_HEADERS = [
-    'content-type',
+    'accept',
+    'accept-encoding',
     'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'https://opulent-yodel-7xg4rvgw9r3r46w-8000.app.github.dev',
+    'http://127.0.0.1:3000',
 ]

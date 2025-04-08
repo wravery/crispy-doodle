@@ -7,11 +7,11 @@ from .models import User, Team, Activity, Leaderboard, Workout
 @api_view(['GET'])
 def api_root(request, format=None):
     return Response({
-        'users': 'https://opulent-yodel-8000.app.github.dev/api/users/',
-        'teams': 'https://opulent-yodel-8000.app.github.dev/api/teams/',
-        'activities': 'https://opulent-yodel-8000.app.github.dev/api/activities/',
-        'leaderboard': 'https://opulent-yodel-8000.app.github.dev/api/leaderboard/',
-        'workouts': 'https://opulent-yodel-8000.app.github.dev/api/workouts/',
+        'users': 'https://opulent-yodel-7xg4rvgw9r3r46w-8000.app.github.dev/api/users/',
+        'teams': 'https://opulent-yodel-7xg4rvgw9r3r46w-8000.app.github.dev/api/teams/',
+        'activities': 'https://opulent-yodel-7xg4rvgw9r3r46w-8000.app.github.dev/api/activities/',
+        'leaderboard': 'https://opulent-yodel-7xg4rvgw9r3r46w-8000.app.github.dev/api/leaderboard/',
+        'workouts': 'https://opulent-yodel-7xg4rvgw9r3r46w-8000.app.github.dev/api/workouts/',
     })
 
 class UserViewSet(viewsets.ModelViewSet):
