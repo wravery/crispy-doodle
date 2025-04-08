@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-qho-c!!!8lr=)j)p+uv%ulc9pc036jihu&)(5_d)qtr69-@qe^
 DEBUG = True
 
 # Allow all hosts
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['opulent-yodel-8000.app.github.dev', 'localhost']
 
 
 # Application definition
